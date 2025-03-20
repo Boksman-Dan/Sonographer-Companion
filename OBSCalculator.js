@@ -224,12 +224,10 @@ function calcEDDfromReport(event) {
     let currentGA_days = GA_at_scan_in_days + daysSinceScan;
     let currentGA_weeks = Math.floor(currentGA_days / 7);
     let remainingGA_days = currentGA_days % 7;
-    console.log(daysSinceScan);
-    console.log(currentGA_weeks + 'p' + remainingGA_days);
     
     // Format and display EDD
     let EDD_formatted = scanDate.toDateString();
-    document.getElementById('Current-GA-from-UR').textContent = `Current GA: ${currentGA_weeks}weeks ${remainingGA_days}`;
+    document.getElementById('Current-GA-from-UR').textContent = `Current GA: ${currentGA_weeks}weeks ${remainingGA_days}days`;
     document.getElementById('EDD-Report-answer').textContent = ` ${EDD_formatted}`;
     document.getElementById('EDD-Report-answer').style.color = 'initial'
 
