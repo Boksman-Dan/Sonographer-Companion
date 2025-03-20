@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="EDD, GA, Obstetrics, Last Menstrual Period, Ultrasound Scan, Gestation" />
+    <meta name="description" content="Guide to Obstetrics Scan" />
+
+    <link rel="icon" type="image/x-icon" href="./assets/OBShelpLogo.png" />
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="./OBSHelp.css">
+    <title>OBS Help</title>
+</head>
+
+<body>
+    <div class="overlay hidden"></div>
+    <div class="about-overlie centeredDiv hidden" id="About-text">
+        <div class="centeredDiv rel-postn about-text">
+            <h1>Description</h1>
+            <p>
+                This calculator is designed to help determine the Gestational age and the Estimated Delivery Date of a gestation, 
+                using patient's data and proven mathematical formulas.
+            </p>
+            <button type="button" class="btn btn-dark" id="close-about">   OK   </button>
+        </div>
+    </div>
+    <aside class="rel-postn aside-content">
+        <img src="./assets/icon-close-menu.svg" class="btn-close" alt="X">
+        <div id="RtH">
+            
+            <button class="in-header" id="open-about">About</button>
+            
+            <button class="in-header ">Settings</button>
+            
+            <a target="_blank" href="">
+                <button type="button" class="btn btn-dark">   DOWNLOAD APP  </button>
+            </a>
+        </div>
+    </aside>
+
+    <div class="ToTop centeredDiv">
+        <a href="#">&uarr;</a> 
+    </div>
+
+    <div id="for-big-screen">
+        <header class="rel-postn topmost">
+            <img src="./assets/OBShelpLogo.png" alt="OBSHelp Logo" class="OBSHelp-logo">
+            <i class="fa-solid fa-bars btn-open"></i>
+
+            <div id="nav-in-header">
+                
+                <button class="in-header" id="open-about2">About</button>
+                
+                <button class="in-header ">Settings</button>
+                
+                <a target="_blank" href="">
+                    <button type="button" class="btn btn-dark">   DOWNLOAD APP  </button>
+                </a>
+            </div>
+        </header>
+
+        <main class="">  
+            <p class="title">Obstetric calculator<br/>
+                <span>Calender based calculation</span>
+            </p>
+            <br>
+            <section id="calender-calc0" class="calc-section">
+                <div class="calc-options" id="GA-from-LMP" onclick="toggleCalc('GA-from-LMP')">
+                    <div class="centeredDiv-row">
+                        <img src="./assets/LMP-icon1.png" alt="LMP" class="calc-options-icons"/>
+                        <div class="calc-options-text">
+                            GA from Last Menstrual Period
+                        </div>
+                    </div>
+
+                    <div class="calc-options-btns">
+                        <i class="fa-solid fa-chevron-right" id="calc-GA-from-LMP-Up"></i>
+                        <i class="fa-solid fa-angle-up hidden" id="calc-GA-from-LMP-Down"></i>
+                    </div>
+                </div>
+
+                <div id="calc-GA-from-LMP" class="hidden calc-form">
+                    <form>
+                        <h6>First day of Last Period</h6>
+    
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="GA-LMP-month" placeholder="Month">
+                            <label for="GA-LMP-month">Month</label>
+                            <div id="GA-LMP-month-input-error" style="font-size: .6rem;"></div>
+                        </div>
+    
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="GA-LMP-day" placeholder="Day">
+                            <label for="GA-LMP-day">Day</label>
+                            <div id="GA-LMP-day-input-error" style="font-size: .6rem;"></div>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="GA-LMP-year" placeholder="Year">
+                            <label for="GA-LMP-year">Year</label>
+                            <div id="GA-LMP-year-input-error" style="font-size: .6rem;"></div>
+                        </div>
+                        <button onclick="calcGAfromLMP(event)" type="submit" class="btn btn-dark" style="font-size: small; margin-bottom: 1rem; width: 100%;">   
+                            DONE  
+                        </button>
+
+                        <h5 id="GA-LMP-result">
+                            <span>Gestational Age: </span> <span id="GA-LMP-answer"></span>
+                        </h5>
+    
+                    </form>
+                </div>
+            </section>
+
+            <section id="calender-calc1" class="calc-section">
+                <div class="calc-options" id="EDD-from-LMP" onclick="toggleCalc('EDD-from-LMP')">
+                    <div class="centeredDiv-row">
+                        <img src="./assets/LMP-icon1.png" alt="LMP" class="calc-options-icons"/>
+                        <div class="calc-options-text">
+                            EDD from Last Menstrual Period
+                        </div>
+                    </div>
+
+                    <div class="calc-options-btns">
+                        <i class="fa-solid fa-chevron-right" id="calc-EDD-from-LMP-Up"></i>
+                        <i class="fa-solid fa-angle-up hidden" id="calc-EDD-from-LMP-Down"></i>
+                    </div>
+                </div>
+
+                <div id="calc-EDD-from-LMP" class="hidden calc-form">
+                    <form >
+                        <h6>First day of Last Period</h6>
+    
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="EDD-LMP-month" placeholder="Month"  >
+                            <label for="EDD-LMP-month">Month</label>
+                            <div id="EDD-LMP-month-input-error" style="font-size: .6rem;"></div>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="EDD-LMP-day" placeholder="Day"  >
+                            <label for="EDD-LMP-day">Day</label>
+                            <div id="EDD-LMP-day-input-error" style="font-size: .6rem;"></div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="EDD-LMP-year" placeholder="Year">
+                            <label for="EDD-LMP-year">Year</label>
+                            <div id="EDD-LMP-year-input-error" style="font-size: .6rem;"></div>
+                        </div>
+                        <button onclick="calcEDDfromLMP(event)" id="EDD-from-LMP-button" type="submit" class="btn btn-dark" style="font-size: small; margin-bottom: 1rem; width: 100%;">   
+                            DONE  
+                        </button>
+    
+                        <h5 id="EDD-LMP-result">
+                            <span>EDD:</span> <span id="EDD-LMP-answer"></span>
+                        </h5>
+    
+                    </form>
+                </div>
+            </section>
+
+            <section id="calender-calc2" class="calc-section">
+                <div class="calc-options" id="EDD-from-Report" onclick="toggleCalc('EDD-from-Report')">
+                    <div class="centeredDiv-row">
+                        <img src="./assets/LMP-icon2.png" alt="LMP" class="calc-options-icons"/>
+                        <div class="calc-options-text">
+                            EDD from Ultrasound Report
+                        </div>
+                    </div>
+
+                    <div class="calc-options-btns">
+                        <i class="fa-solid fa-chevron-right" id="calc-EDD-from-Report-Up"></i>
+                        <i class="fa-solid fa-angle-up hidden" id="calc-EDD-from-Report-Down"></i>
+                    </div>
+                </div>
+
+                <div id="calc-EDD-from-Report" class="hidden calc-form">
+                    <h6>Date Ultrasound was performed</h6>
+
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="EDD-Report-month" placeholder="Month">
+                        <label for="EDD-Report-month">Month</label>
+                        <div id="EDD-report-month-input-error" style="font-size: .6rem;"></div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="EDD-Report-day" placeholder="Day">
+                        <label for="EDD-Report-day">Day</label>
+                        <div id="EDD-report-day-input-error" style="font-size: .6rem;"></div>
+                    </div>
+                    
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="EDD-Report-year" placeholder="Year">
+                        <label for="EDD-Report-year">Year</label>
+                        <div id="EDD-report-year-input-error" style="font-size: .6rem;"></div>
+                    </div>
+
+                    <h6> Gestation Age at above date</h6>
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="Weeks-at-report-date" placeholder="Month">
+                        <label for="Weeks-at-report-date">Weeks</label>
+                        <div id="Week-at-report-input-error" style="font-size: .6rem;"></div>
+                    </div>
+                    
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="Days-at-report-date" placeholder="Year">
+                        <label for="Days-at-report-date">Days</label>
+                        <div id="Day-at-report-input-error" style="font-size: .6rem;"></div>
+                    </div>
+                
+                    <button onclick="calcEDDfromReport(event)" id="EDD-from-LMP-button" type="submit" class="btn btn-dark" style="font-size: small; margin-bottom: 1rem; width: 100%;">   
+                        DONE  
+                    </button>
+
+                    <h5 id="EDD-Report-result">
+                        <span>EDD:</span> <span id="EDD-Report-answer"></span>
+                    </h5>
+                    <h6 id="Current-GA-from-UR"></h6>
+
+                </div>
+            </section>
+
+            <section id="calender-calc3" class="calc-section">
+                <div class="calc-options" id="EDD-from-GivenDate" onclick="toggleCalc('EDD-from-GivenDate')">
+                    <div class="centeredDiv-row">
+                        <img src="./assets/LMP-icon3.png" alt="LMP" class="calc-options-icons"/>
+                        <div class="calc-options-text">
+                            EDD from a Given Date
+                        </div>
+                    </div>
+
+                    <div class="calc-options-btns">
+                        <i class="fa-solid fa-chevron-right" id="calc-EDD-from-GivenDate-Up"></i>
+                        <i class="fa-solid fa-angle-up hidden" id="calc-EDD-from-GivenDate-Down"></i>
+                    </div>
+                </div>
+
+                <div id="calc-EDD-from-GivenDate" class="hidden calc-form">
+                    
+                    <h6>Date Gestational Age was known</h6>
+
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="EDD-Given-month" placeholder="Month">
+                        <label for="EDD-Given-month">Month</label>
+                    </div>
+                    
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="EDD-Given-day" placeholder="Day">
+                        <label for="EDD-Given-day">Day</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="EDD-Given-year" placeholder="Year">
+                        <label for="EDD-Given-year">Year</label>
+                    </div>
+                    
+                    <h6> Gestation Age at above date</h6>
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="Weeks-at-given-date" placeholder="Month">
+                        <label for="Weeks-at-given-date">Weeks</label>
+                    </div>
+                    
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="Days-at-given-date" placeholder="Year">
+                        <label for="Days-at-given-date">Days</label>
+                    </div>
+                    
+                    <button onclick="calcEDDfromGivenDate(event)" id="EDD-from-LMP-button" type="submit" class="btn btn-dark" style="font-size: small; margin-bottom: 1rem; width: 100%;">   
+                        DONE  
+                    </button>
+
+                    <h5 id="EDD-Given-result">
+                        <span>EDD:</span> <span id="EDD-Given-answer"></span>
+                    </h5>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./OBSHelp.js"></script>
+    <script src="./OBSCalculator.js"></script>
+</body>
+</html>
