@@ -108,7 +108,9 @@ section.calc-section{
     border-radius:50%;
     background-color: var(--color-brown-icon);
     color:var(--color-white);
+  font-size: large
     text-align: center;
+  
 }
 .ToTop a:link, .ToTop a:hover, .ToTop a:active, .ToTop a:visited {
     font-size:1.65rem;  font-family: monospace;
