@@ -97,7 +97,7 @@ section.calc-section{
 }
 .calc-form{
     padding: 0 0.5rem 1rem;
-    margin-top: 1rem;
+    margin: 1rem 0;
 }
 
 
@@ -113,7 +113,7 @@ section.calc-section{
   
 }
 .ToTop a:link, .ToTop a:hover, .ToTop a:active, .ToTop a:visited {
-    font-size:2rem;  font-family: monospace;  font-weight: 800;
+    font-size:1.8rem;  font-family: monospace;  font-weight: 800;
     text-decoration: none;          color:var(--color-white);
 }
 
