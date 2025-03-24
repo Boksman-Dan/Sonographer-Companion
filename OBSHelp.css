@@ -113,7 +113,7 @@ section.calc-section{
   
 }
 .ToTop a:link, .ToTop a:hover, .ToTop a:active, .ToTop a:visited {
-    font-size:1.65rem;  font-family: monospace;
+    font-size:2rem;  font-family: monospace;  font-weight: 800;
     text-decoration: none;          color:var(--color-white);
 }
 
