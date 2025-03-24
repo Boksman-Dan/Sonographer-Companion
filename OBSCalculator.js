@@ -74,7 +74,7 @@ function calcGAfromLMP(event) {
     let days = diffInDays % 7;
 
     // Display GA
-    if (weeks > 42) {
+    if (weeks > 41) {
         document.getElementById('GA-LMP-answer').textContent = `Post Term Gestation`;
     } else {
         document.getElementById('GA-LMP-answer').textContent = `${weeks}weeks and ${days}days`;
